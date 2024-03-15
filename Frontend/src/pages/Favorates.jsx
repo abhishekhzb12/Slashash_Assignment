@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Button, Card, Col, Form, InputGroup, Navbar, Row } from "react-bootstrap";
+import {  Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 function Favorates() {
@@ -8,7 +8,7 @@ function Favorates() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8080/quote`
+          `http://localhost:8080/movie`
         );
         console.log(res);
         setData(res.data);
@@ -18,25 +18,32 @@ function Favorates() {
     };
     useEffect(() => {
       fetchData();
-    })
+    },[])
   return (
-    <div>
-      {data &&
-        data.map((item, index) => {
-          return (
-            <div key={index}>
-              <Card>
-                <Card.Body>                  
-                  <Card.Text>
-                    Quote: "{item.quote}"
-                  </Card.Text>
-                  <Card.Title>Author: {item.author}</Card.Title>
-                </Card.Body>
-              </Card>
-            </div>
-          );
-        })}
-    </div>
+    <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: "10px",
+        }}
+      >
+        {data &&
+          data.map((item, index) => {
+            return (
+              <div key={index}>
+                <Card style={{ width: "18rem" }}>
+                  <Card.Img variant="top" src={item.Poster} />
+                  <Card.Body>
+                    <Card.Title>{item.Title}</Card.Title>
+                    <Card.Text>Year: {item.Year}</Card.Text>
+                    <Card.Text>Type: {item.Types}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+            );
+          })}
+      </div>
   )
 }
 

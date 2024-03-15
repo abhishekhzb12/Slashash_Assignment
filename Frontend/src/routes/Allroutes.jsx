@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
-import Search from "../pages/search"
 import Favorates from "../pages/Favorates"
 import Navbars from "../pages/Navbar"
+import Search from "../pages/Search"
 
 
 function AllRoutes() {
@@ -17,3 +17,4 @@ function AllRoutes() {
 }
 
 export default AllRoutes
+
