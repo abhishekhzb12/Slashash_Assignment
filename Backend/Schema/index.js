@@ -8,3 +8,4 @@ const sequelize = new Sequelize('slashash', 'root', 'abhishek', {
 module.exports={
     sequelize
 }
+//f
