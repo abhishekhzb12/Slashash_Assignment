@@ -46,5 +46,5 @@ function Favorates() {
       </div>
   )
 }
-
+//d
 export default Favorates
